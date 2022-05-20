@@ -1,0 +1,52 @@
+<div class="alert-success alert">
+    {{viewTitle}}
+</div>
+{{#each list}}
+
+<div class="container-fluid ">
+    <div class="card my-3 m-auto text-center" style="width: 18rem;">
+        <h5 class="card-title bg-warning p-2">Datasource</h5>
+        <div class="card-body ">
+            <h6 class="card-subtitle mb-2">Type: {{this.type}}</h6>
+            <p class="card-text">Source:  {{this.method}}</p>
+        </div>
+    </div>
+    <div class="card my-3 m-auto text-center" style="width: 18rem;">
+        <h5 class="card-title  bg-success p-2">Script</h5>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2">Name: sia.request_annos.py</h6>
+            <p class="card-text">{{this.notes}}</p>
+        </div>
+    </div>
+    <div class="card my-3 m-auto text-center" style="width: 18rem;">
+        <h5 class="card-title bg-warning p-2">Annotation Task</h5>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2">Name: Single Image Annotation Task</h6>
+            <p class="card-text">Type: {{this.type}} </p>
+            <p class="card-text">Asignee:{{this.pipeline}} </p>
+        </div>
+    </div>
+    <div class="card my-3  m-auto text-center" style="width: 18rem;">
+        <h5 class="card-title bg-success p-2">Script</h5>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2">Name:{{this.pipeline}}</h6>
+            <p class="card-text">Source: {{this.method}}</p>
+        </div>
+    </div>
+    <div class="card my-3 m-auto text-center" style="width: 18rem;">
+        <h5 class="card-title bg-success p-2">Data Export</h5>
+
+        <div class="card-body ">
+            <h6 class="card-subtitle mb-2">Type: datasource</h6>
+        </div>
+    </div>
+
+</div>
+
+{{/each}}
+<script>
+    setTimeout(function () {
+        window.location = "/";
+    }, 6000)
+    setTimeout()
+</script>

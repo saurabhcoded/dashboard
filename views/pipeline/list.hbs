@@ -1,0 +1,100 @@
+<main>
+    <div class="head-title">
+        <div class="left">
+            <h1>AutoSpace Pipelines</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li><i class='bx bx-chevron-right'></i></li>
+                <li>
+                    <a class="active" href="#">Home</a>
+                </li>
+            </ul>
+        </div>
+        <form action="#" class="my-4" max-width="300px">
+            <div class="form-input">
+                <input type="search" placeholder="Search...">
+            </div>
+        </form>
+
+    </div>
+    <a href="/create">
+        <button class="create-pipeline"><i class='bx bx-plus-medical'></i>Create New Pipeline</button>
+    </a>
+    <ul class="box-info">
+
+        <li>
+            <i class='bx bxs-image'></i>
+            <span class="text">
+                <h3>Image</h3>
+                <p>Pre-Build image Pipeline</p>
+                <hr style="color: black;">
+                <small style="font-size:0.8rem;display: block;">Choose preconfigured pipeline for image</small>
+            </span>
+
+        </li>
+        <li>
+            <i class='bx bxs-video'></i>
+            <span class="text">
+                <h3>Video</h3>
+                <p>Pre-Build Video Pipeline</p>
+                <hr style="color: black;">
+                <small style="font-size:0.8rem;display: block;">Choose preconfigured pipeline for Video</small>
+            </span>
+        </li>
+        <li>
+            <i class='bx bxs-group'></i>
+            <span class="text">
+                <h3>Custom</h3>
+                <p>2D image | 3D image</p>
+                <hr style="color: black;">
+                <small style="font-size:0.8rem;display: block;">Choose preconfigured pipeline</small>
+            </span>
+        </li>
+    </ul>
+
+
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Existing Pipelines</h3>
+                <button class="btn btn-outline-warning"><i class='bx bx-download'>Sort</i> </button>
+                <button class="btn btn-outline-warning"><i class='bx bx-filter'>Filter</i></button>
+            </div>
+
+            <table class="table table-striped" id="#table">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>STATUS</th>
+                        <th>DATA</th>
+                        <th>DATA</th>
+                        <th>DATA</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each list}}
+                    <tr>
+                        <td>{{this.pipeline}}</td>
+                        <td>completed</td>
+                        <td>{{this.type}}</td>
+                        <td>{{this.subtype}}</td>
+                        <td>13/09/2022</td>
+                        <td>
+                            <a href="/{{this._id}}"><i class="bx bxs-pencil" aria-hidden="true"></i></a>
+                            <a href="/delete/{{this._id}}"
+                                onclick="return confirm('Are you sure to delete this record ?');"><i
+                                    class="bx bxs-trash" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</main>
+<!-- MAIN -->
+</section>

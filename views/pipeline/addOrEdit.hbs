@@ -1,0 +1,273 @@
+
+    <!-- MAIN -->
+    <div class="main-container p-5 col-10" id="shown">
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Dashboard</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="active" href="#">{{viewTitle}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <form action="/create" method="POST">
+            <div class="bg-light px-5 py-5 pb-5 shadow-sm rounded">
+                <input type="hidden" name="_id" value="{{pipeline._id}}">
+                <div class="form-group">
+                    <label>Pipeline Name</label>
+                    <input type="text" class="form-control" name="pipeline" placeholder=""
+                        value="{{pipeline.pipeline}}">
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <input type="text" class="form-control" name="notes" placeholder="" value="{{pipeline.notes}}">
+                </div>
+            </div>
+
+
+
+            <div class="container-fluid p-5 bg-light my-3 shadow-sm rounded">
+                <h3>Select Data Type</h3>
+                <div class="row p-3">
+                    <ul class="mb-3 form-check col-4 px-5">
+                        <li><input type="radio" class="form-check-input" name="type" value="Image">
+                            <label class="form-check-label">Image</label>
+                        </li>
+                        <li class="bg-secondary  rounded p-3 mt-1"><label><input type="radio" name="subtype"
+                                    value="BOUNDING BOX"><span>
+                                    BOUNDING BOX</span></label></li>
+                        <li class="bg-secondary  rounded p-3 mt-1"><label><input type="radio" name="subtype"
+                                    value="INSTANCE SEGMENT"><span>
+                                    INSTANCE SEGMENT</span></label></li>
+                        <li class="bg-secondary  rounded p-3 mt-1"><label><input type="radio" name="subtype"
+                                    value="SEMANTIC SEGMENT"><span>
+                                    SEMANTIC SEGMENT</span></label></li>
+                    </ul>
+                    <ul class="mb-3 form-check col-4 px-5">
+                        <li><input type="radio" class="form-check-input" name="type" value="Video">
+                            <label class="form-check-label">Video</label>
+                        </li>
+                        <li class="bg-secondary rounded p-1 mt-1"><h5 type="menu" class="btn" onclick="show()">Video Annotation</h5></li>
+                    </ul>
+                    <ul class="mb-3 form-check col-4 px-5">
+                        <li><input type="radio" class="form-check-input" name="type" value="3D-cloud">
+                            <label class="form-check-label"> 3D-cloud</label>
+                        </li>
+                        <li class="bg-secondary  rounded p-3 mt-1"><label><input type="radio" name="subtype"
+                                    value="3D-Cuboid Ann."><span>
+                                    3D-CUBOID ANNOTATION</span></label></li>
+                        </li>
+                        <li class="bg-secondary  rounded p-3 mt-1"><label><input type="radio" name="subtype"
+                                    value="Cloud Annotation"><span> POINT
+                                    CLOUD ANNOTATION</span></label></li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container-fluid p-5 bg-light my-3 shadow-sm rounded">
+                <div class="row p-3">
+                    <ul class="mb-3 form-check col-4 px-2">
+                        <label class=" p-5 rounded-4 shadow">
+                            <input type="radio" name="method" value="local d"><span> Upload from local drive</span>
+                        </label>
+                    </ul>
+                    <ul class="mb-3 form-check col-4 px-2">
+                        <label class=" p-5 rounded-4 shadow">
+                            <input type="radio" name="method" value="DAS"><span> Upload from DAS</span>
+                        </label>
+                    </ul>
+                    <ul class="mb-3 form-check col-4 px-2">
+                        <label class=" p-5 rounded-4 shadow">
+                            <input type="radio" name="method" value="url"><span> Upload url</span>
+                        </label>
+                    </ul>
+                </div>
+            </div>
+            <div class="design p-5 bg-light my-3 shadow-sm rounded">
+                <h4 class="my-5">Select Pipeline Design</h4>
+                <div class="row p-3">
+                    <ul class="mb-3 form-check col-3 px-1">
+                        <label class="px-5 py-4 rounded-4 shadow">
+                            <input type="radio" name="design" value="2D"><span> 2D- PIPELINE</span>
+                        </label>
+                    </ul>
+                    <ul class="mb-3 form-check col-3 px-1">
+                        <label class="px-5 py-4 rounded-4 shadow">
+                            <input type="radio" name="design" value="3D"><span> 3D PIPELINE</span>
+                        </label>
+                    </ul>
+                    <ul class="mb-3 form-check col-3 px-1">
+                        <label class="px-5 py-4 rounded-4 shadow">
+                            <input type="radio" name="design" value="BOUNDING BOX"><span> BOUNDING BOX</span>
+                        </label>
+                    </ul>
+                    <ul class="mb-3 form-check col-3 px-1">
+                        <label class="px-5 py-4  rounded-4 shadow">
+                            <input type="radio" name="design" value="IMAGE SEGMENT"><span> IMAGE SEGMENT</span>
+                        </label>
+                    </ul>
+                </div>
+            </div>
+            
+            <button class="btn btn-outline-success px-4 py-3" type="submit">Create</button>
+        </form>
+    </div>
+
+
+
+
+
+
+    <!-- MAIN -->
+
+{{!-- hidden page --}}
+      <div class="main-container p-5 col-9" id="hidden" style="display:none;">
+            <main>
+                <div class="head-title">
+                    <div class="left">
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="#">Dashboard</a>
+                            </li>
+                            <li><i class='bx bx-chevron-right'></i></li>
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li><i class='bx bx-chevron-right'></i></li>
+                            <li>
+                                <a class="active" href="#">Edit Pipeline</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alertboxcontainer">
+                    {{alert}}
+                </div>
+            </main>
+            <form action="/created" method="post">
+
+                <div class="bg-light m-3 p-4 shadow-sm rounded row">
+                    <div class="input-group mb-3 rounded bg-secondary p-3 py-4 col">
+                        <h3 class="text-light m-auto my-2">Input Data Source</h3>
+                        <input type="file" class="form-control" id="inputGroupFile02" style="display:none;">
+                        <label class="bg-light p-2 m-auto rounded" for="inputGroupFile02">Select Folder</label>
+                    </div>
+                    <div class="col-5">
+                        <div class="input-group mb-3 shadow-sm">
+                            <select class="form-select" id="inputGroupSelect01">
+                                <option selected>DROPDOWN</option>
+                                <option value="1">Kitti</option>
+                                <option value="2">BDD</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Checkbox
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-light m-3 shadow-sm rounded">
+                    <div class="row p-3">
+                        <div class="mb-3 form-check col px-2">
+                            <p class="btn btn-outline-warning">Pre-processing script</p>
+                        </div>
+                        <div class="me-3 form-check col px-2">
+                            <div class="input-group mb-3 shadow-sm">
+                                <select class="form-select" id="inputGroupSelect01">
+                                    <option selected>DROPDOWN</option>
+                                    <option value="1">Face anonymization</option>
+                                    <option value="2">License plate burning</option>
+                                    <option value="2">Dehaze</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ms-3 form-check col px-2">
+                            <div class="form-check me-0">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Checkbox
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-light m-3 p-3 shadow-sm rounded row">
+                    <div class="input-group  rounded bg-secondary px-1 py-4 col">
+                        <h3 class="btn p-2 m-2 btn-outline-warning rounded">Annotation Setup</h3>
+                        <div class="row justify-content-around">
+                            <div class="col">
+                                <label class="px-2 btn btn-warning  rounded">Label Category</label>
+
+                            </div>
+                            <div class="input-group shadow-sm col ">
+                                <select class="form-select " id="inputGroupSelect01">
+                                    <option selected>DROPDOWN</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group mb-3 shadow-sm">
+                            <select class="form-select" id="inputGroupSelect01">
+                                <option selected>DROPDOWN</option>
+                                <option value="1">Kitti</option>
+                                <option value="2">BDD</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Checkbox
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-light m-3 p-3 shadow-sm rounded row d-flex">
+                    <div class="input-group mb-3 rounded bg-secondary p-3 col">
+                        <input type="file" class="form-control" id="inputGroupFile02" style="display:none;">
+                        <label class="bg-light p-2 m-auto rounded" for="inputGroupFile02">Data Export</label>
+                    </div>
+                    <div class="col">
+                        <h4 class="btn btn-warning p-3" onclick="Hide()">Next</h4>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+
+
+
+<script>
+    function show() {
+        document.getElementById("shown").style.display = "none";
+        document.getElementById("hidden").style.display = "block"
+    }
+    function Hide() {
+        document.getElementById("shown").style.display = "block";
+        document.getElementById("hidden").style.display = "none"
+    }
+</script>
