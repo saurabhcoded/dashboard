@@ -1,10 +1,10 @@
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
-allSideMenu.forEach(item=> {
+allSideMenu.forEach(item => {
 	const li = item.parentElement;
 
 	item.addEventListener('click', function () {
-		allSideMenu.forEach(i=> {
+		allSideMenu.forEach(i => {
 			i.parentElement.classList.remove('active');
 		})
 		li.classList.add('active');
@@ -12,39 +12,57 @@ allSideMenu.forEach(item=> {
 });
 
 // TOGGLE SIDEBAR
-const menuBar = document.querySelector('#content nav .bx.bx-menu');
+const menuBar = document.querySelector('#sidebar .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
 
 menuBar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 })
 
-const searchButton = document.querySelector('#content nav form .form-input button');
-const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
-const searchForm = document.querySelector('#content nav form');
 
-searchButton.addEventListener('click', function (e) {
-	if(window.innerWidth < 576) {
-		e.preventDefault();
-		searchForm.classList.toggle('show');
-		if(searchForm.classList.contains('show')) {
-			searchButtonIcon.classList.replace('bx-search', 'bx-x');
-		} else {
-			searchButtonIcon.classList.replace('bx-x', 'bx-search');
+const links = document.querySelectorAll("#sidebar ul a");
+
+
+// ----search---
+function mySearch() {
+	var input, filter, table, tr, td, i, txtValue;
+	input = document.getElementById("myInput");
+	filter = input.value.toUpperCase();
+	table = document.getElementById("table");
+	tr = table.getElementsByTagName("tr");
+	for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[0];
+		if (td) {
+			txtValue = td.textContent || td.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			} else {
+				tr[i].style.display = "none";
+			}
 		}
 	}
-})
-if(window.innerWidth < 768) {
-	sidebar.classList.add('hide');
-} else if(window.innerWidth > 576) {
-	searchButtonIcon.classList.replace('bx-x', 'bx-search');
-	searchForm.classList.remove('show');
 }
 
+// date sort 
+function convertDate(d) {
+	var p = d.split("/");
+	return +(p[2]+p[1]+p[0]);
+  }
+  
+  function sortByDate() {
+	var tbody = document.querySelector("#table tbody");
+	// get trs as array for ease of use
+	var rows = [].slice.call(tbody.querySelectorAll("tr"));
+	
+	rows.sort(function(a,b) {
+	  return convertDate(a.cells[4].innerHTML) - convertDate(b.cells[4].innerHTML);
+	});
+	rows.forEach(function(v) {
+	  tbody.appendChild(v); // note that .appendChild() *moves* elements
+	});
+  }
 
-window.addEventListener('resize', function () {
-	if(this.innerWidth > 576) {
-		searchButtonIcon.classList.replace('bx-x', 'bx-search');
-		searchForm.classList.remove('show');
-	}
-});
+  document.querySelector("#sort").addEventListener("click", sortByDate);
+
+  
+  

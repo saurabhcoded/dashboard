@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 var pipelineSchema = new mongoose.Schema({
     pipeline: {
         type: String,
@@ -17,6 +18,9 @@ var pipelineSchema = new mongoose.Schema({
         type:String
     },
     Design:{
+        type:String
+    },
+    date:{
         type:String
     }
 });

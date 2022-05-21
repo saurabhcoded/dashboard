@@ -1,3 +1,5 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
 <main>
     <div class="head-title">
         <div class="left">
@@ -59,11 +61,12 @@
         <div class="order">
             <div class="head">
                 <h3>Existing Pipelines</h3>
-                <button class="btn btn-outline-warning"><i class='bx bx-download'>Sort</i> </button>
-                <button class="btn btn-outline-warning"><i class='bx bx-filter'>Filter</i></button>
+                <input style="outline:none;border:none;width:180px;" type="text" id="myInput" class="shadow-sm rounded-5 px-4 py-2"
+                    onkeyup="mySearch()" placeholder="Search for Pipeline name..." title="Type in a name">
+                <button class="btn btn-outline-warning" id="sort"><i class='bx bx-download'>Sort</i> </button>
             </div>
 
-            <table class="table table-striped" id="#table">
+            <table class="table table-striped" id="table">
                 <thead>
                     <tr>
                         <th>NAME</th>
@@ -78,10 +81,10 @@
                     {{#each list}}
                     <tr>
                         <td>{{this.pipeline}}</td>
-                        <td>completed</td>
+                        <td class="status completed">completed</td>
                         <td>{{this.type}}</td>
                         <td>{{this.subtype}}</td>
-                        <td>13/09/2022</td>
+                        <td>{{this.date}}</td>
                         <td>
                             <a href="/{{this._id}}"><i class="bx bxs-pencil" aria-hidden="true"></i></a>
                             <a href="/delete/{{this._id}}"
@@ -98,3 +101,5 @@
 </main>
 <!-- MAIN -->
 </section>
+<script>
+</script>

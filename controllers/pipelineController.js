@@ -26,6 +26,7 @@ function insertRecord(req, res) {
     pipeline.subtype=req.body.subtype;
     pipeline.method=req.body.method;
     pipeline.design=req.body.design;
+    pipeline.date=req.body.date;
     pipeline.save((err, doc) => {
         if (!err){
             console.log("error");

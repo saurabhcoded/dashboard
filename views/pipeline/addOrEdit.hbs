@@ -1,7 +1,7 @@
-
-    <!-- MAIN -->
-    <div class="main-container p-5 col-10" id="shown">
-        <main>
+<!-- MAIN -->
+<div class="row px-3 py-5 " id="shown">
+    <div class="main-container col-md-8 col-sm-12">
+        <main >
             <div class="head-title">
                 <div class="left">
                     <ul class="breadcrumb">
@@ -21,7 +21,8 @@
             </div>
         </main>
         <form action="/create" method="POST">
-            <div class="bg-light px-5 py-5 pb-5 shadow-sm rounded">
+        <input type="text" name="date" id="TodayDate" style="display: none;"></input>
+            <div class="bg-light p-4 shadow-sm rounded">
                 <input type="hidden" name="_id" value="{{pipeline._id}}">
                 <div class="form-group">
                     <label>Pipeline Name</label>
@@ -36,225 +37,245 @@
 
 
 
-            <div class="container-fluid p-5 bg-light my-3 shadow-sm rounded">
-                <h3>Select Data Type</h3>
+            <div class="container-fluid p-2 bg-light my-3 shadow-sm rounded">
+                <h3 class="p-3">Select Data Type</h3>
                 <div class="row p-3">
-                    <ul class="mb-3 form-check col-4 px-5">
+                    <ul class="mb-3 form-check col-md-4 px-5 col-sm-12">
                         <li><input type="radio" class="form-check-input" name="type" value="Image">
                             <label class="form-check-label">Image</label>
+                        <li class="bg-secondary  rounded p-2 mt-3" onclick="show()">
+                            <input name="subtype" type="radio" value="BOUNDING BOX"> <label align="center"> BOUNDING
+                                BOX</label>
                         </li>
-                        <li class="bg-secondary  rounded p-3 mt-1"><label><input type="radio" name="subtype"
-                                    value="BOUNDING BOX"><span>
-                                    BOUNDING BOX</span></label></li>
-                        <li class="bg-secondary  rounded p-3 mt-1"><label><input type="radio" name="subtype"
-                                    value="INSTANCE SEGMENT"><span>
-                                    INSTANCE SEGMENT</span></label></li>
-                        <li class="bg-secondary  rounded p-3 mt-1"><label><input type="radio" name="subtype"
-                                    value="SEMANTIC SEGMENT"><span>
-                                    SEMANTIC SEGMENT</span></label></li>
+
+                        <li class="bg-secondary  rounded p-2 mt-3" onclick="show()">
+                            <input name="subtype" type="radio" value="INSTANCE SEGMENT"> <label align="center"> INSTANCE
+                                SEGMENT</label>
+
+                        </li>
+                        <li class="bg-secondary  rounded p-2 mt-3" onclick="show()">
+                            <input name="subtype" type="radio" value="SEMANTIC SEGMENT"><label align="center"> SEMANTIC
+                                SEGMENT</label>
+                        </li>
                     </ul>
-                    <ul class="mb-3 form-check col-4 px-5">
+                    <ul class="mb-3 form-check col-md-4 col-sm-12 px-5">
                         <li><input type="radio" class="form-check-input" name="type" value="Video">
                             <label class="form-check-label">Video</label>
                         </li>
-                        <li class="bg-secondary rounded p-1 mt-1"><h5 type="menu" class="btn" onclick="show()">Video Annotation</h5></li>
+
+                        <li class="bg-secondary  rounded p-2 mt-3" onclick="show()">
+                            <input name="subtype" type="radio" value="VIDEO ANNOTATION"><label align="center"> VIDEO
+                                ANNOTATION</label>
+                        </li>
                     </ul>
-                    <ul class="mb-3 form-check col-4 px-5">
-                        <li><input type="radio" class="form-check-input" name="type" value="3D-cloud">
-                            <label class="form-check-label"> 3D-cloud</label>
+                    <ul class="mb-3 form-check col-md-4 col-sm-12 px-5">
+                        <li><input type="radio" class="form-check-input" name="type" value="3D-Cloud">
+                            <label class="form-check-label">3D-Cloud</label>
                         </li>
-                        <li class="bg-secondary  rounded p-3 mt-1"><label><input type="radio" name="subtype"
-                                    value="3D-Cuboid Ann."><span>
-                                    3D-CUBOID ANNOTATION</span></label></li>
+                        <li class="bg-secondary  rounded p-2 mt-3" onclick="show()">
+                            <input name="subtype" type="radio" value="3D CUBOID ANNOTATION"><label align="center"> 3D
+                                CUBOID ANNOTATION</label>
                         </li>
-                        <li class="bg-secondary  rounded p-3 mt-1"><label><input type="radio" name="subtype"
-                                    value="Cloud Annotation"><span> POINT
-                                    CLOUD ANNOTATION</span></label></li>
+                        <li class="bg-secondary  rounded p-2 mt-3" onclick="show()">
+                            <input name="subtype" type="radio" value="POINT CLOUD ANNOTATION"><label align="center">
+                                POINT CLOUD ANNOTATION</label>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="container-fluid p-5 bg-light my-3 shadow-sm rounded">
-                <div class="row p-3">
-                    <ul class="mb-3 form-check col-4 px-2">
-                        <label class=" p-5 rounded-4 shadow">
+            <div class="container-fluid p-2 bg-light my-3 shadow-sm rounded">
+                <div class="row p-2">
+                    <ul class="mb-3 form-check col-md-4 col-sm-12 px-2">
+                        <label class=" p-5 rounded-3 shadow">
                             <input type="radio" name="method" value="local d"><span> Upload from local drive</span>
                         </label>
                     </ul>
-                    <ul class="mb-3 form-check col-4 px-2">
-                        <label class=" p-5 rounded-4 shadow">
+                    <ul class="mb-3 form-check col-md-4 col-sm-12 px-2">
+                        <label class=" p-5 rounded-3 shadow">
                             <input type="radio" name="method" value="DAS"><span> Upload from DAS</span>
                         </label>
                     </ul>
-                    <ul class="mb-3 form-check col-4 px-2">
-                        <label class=" p-5 rounded-4 shadow">
+                    <ul class="mb-3 form-check col-md-4 col-sm-12 px-2">
+                        <label class=" p-5 rounded-3 shadow">
                             <input type="radio" name="method" value="url"><span> Upload url</span>
                         </label>
                     </ul>
                 </div>
             </div>
-            <div class="design p-5 bg-light my-3 shadow-sm rounded">
+            <div class="design p-2 bg-light my-3 shadow-sm rounded">
                 <h4 class="my-5">Select Pipeline Design</h4>
                 <div class="row p-3">
-                    <ul class="mb-3 form-check col-3 px-1">
+                    <ul class="mb-3 form-check col-md-3 col-sm-12 px-1">
                         <label class="px-5 py-4 rounded-4 shadow">
                             <input type="radio" name="design" value="2D"><span> 2D- PIPELINE</span>
                         </label>
                     </ul>
-                    <ul class="mb-3 form-check col-3 px-1">
+                    <ul class="mb-3 form-check col-md-3 col-sm-12 px-1">
                         <label class="px-5 py-4 rounded-4 shadow">
                             <input type="radio" name="design" value="3D"><span> 3D PIPELINE</span>
                         </label>
                     </ul>
-                    <ul class="mb-3 form-check col-3 px-1">
+                    <ul class="mb-3 form-check col-md-3 col-sm-12 px-1">
                         <label class="px-5 py-4 rounded-4 shadow">
                             <input type="radio" name="design" value="BOUNDING BOX"><span> BOUNDING BOX</span>
                         </label>
                     </ul>
-                    <ul class="mb-3 form-check col-3 px-1">
+                    <ul class="mb-3 form-check col-md-3 col-sm-12 px-1">
                         <label class="px-5 py-4  rounded-4 shadow">
                             <input type="radio" name="design" value="IMAGE SEGMENT"><span> IMAGE SEGMENT</span>
                         </label>
                     </ul>
                 </div>
             </div>
-            
-            <button class="btn btn-outline-success px-4 py-3" type="submit">Create</button>
+
+            <button class="btn btn-outline-warning px-4 py-3" type="submit">Create</button>
         </form>
     </div>
+    <div class="col-md-4 col-sm-12 mt-5">
+        <button class="btn bg-light ">View pipeline</button>
+        <button class="btn bg-light ">Edit pipeline</button>
+    </div>
+</div>
 
 
 
 
 
 
-    <!-- MAIN -->
+<!-- MAIN -->
 
 {{!-- hidden page --}}
-      <div class="main-container p-5 col-9" id="hidden" style="display:none;">
-            <main>
-                <div class="head-title">
-                    <div class="left">
-                        <ul class="breadcrumb">
-                            <li>
-                                <a href="#">Dashboard</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a href="#">Home</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="#">Edit Pipeline</a>
-                            </li>
-                        </ul>
-                    </div>
+<div class="px-2 py-5 row" id="hidden" style="display:none;">
+    <div class="main-container col-md-8 col-sm-12">
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Dashboard</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="active" href="#">Edit Pipeline</a>
+                        </li>
+                    </ul>
                 </div>
-
-                <div class="alertboxcontainer">
-                    {{alert}}
-                </div>
-            </main>
-            <form action="/created" method="post">
-
-                <div class="bg-light m-3 p-4 shadow-sm rounded row">
-                    <div class="input-group mb-3 rounded bg-secondary p-3 py-4 col">
-                        <h3 class="text-light m-auto my-2">Input Data Source</h3>
-                        <input type="file" class="form-control" id="inputGroupFile02" style="display:none;">
-                        <label class="bg-light p-2 m-auto rounded" for="inputGroupFile02">Select Folder</label>
-                    </div>
-                    <div class="col-5">
-                        <div class="input-group mb-3 shadow-sm">
-                            <select class="form-select" id="inputGroupSelect01">
-                                <option selected>DROPDOWN</option>
-                                <option value="1">Kitti</option>
-                                <option value="2">BDD</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                            <label class="form-check-label" for="flexCheckChecked">
-                                Checkbox
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-3 bg-light m-3 shadow-sm rounded">
-                    <div class="row p-3">
-                        <div class="mb-3 form-check col px-2">
-                            <p class="btn btn-outline-warning">Pre-processing script</p>
-                        </div>
-                        <div class="me-3 form-check col px-2">
-                            <div class="input-group mb-3 shadow-sm">
-                                <select class="form-select" id="inputGroupSelect01">
-                                    <option selected>DROPDOWN</option>
-                                    <option value="1">Face anonymization</option>
-                                    <option value="2">License plate burning</option>
-                                    <option value="2">Dehaze</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="ms-3 form-check col px-2">
-                            <div class="form-check me-0">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    Checkbox
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-light m-3 p-3 shadow-sm rounded row">
-                    <div class="input-group  rounded bg-secondary px-1 py-4 col">
-                        <h3 class="btn p-2 m-2 btn-outline-warning rounded">Annotation Setup</h3>
-                        <div class="row justify-content-around">
-                            <div class="col">
-                                <label class="px-2 btn btn-warning  rounded">Label Category</label>
-
-                            </div>
-                            <div class="input-group shadow-sm col ">
-                                <select class="form-select " id="inputGroupSelect01">
-                                    <option selected>DROPDOWN</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group mb-3 shadow-sm">
-                            <select class="form-select" id="inputGroupSelect01">
-                                <option selected>DROPDOWN</option>
-                                <option value="1">Kitti</option>
-                                <option value="2">BDD</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                            <label class="form-check-label" for="flexCheckChecked">
-                                Checkbox
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-light m-3 p-3 shadow-sm rounded row d-flex">
-                    <div class="input-group mb-3 rounded bg-secondary p-3 col">
+            </div>
+        </main>
+        <form action="/created" method="post">
+            <div class="bg-light m-3 p-3 shadow-sm rounded row justify-content-center">
+                <div class="mb-3 rounded bg-secondary p-2 py-4 col-md-4 col-sm-12">
+                    <h3 class="text-light m-auto mt-1 mb-3 text-dark" align="center">Input Data Source</h3>
+                    <div class="input-group mb-3 rounded bg-secondary py-5 px-2 col">
                         <input type="file" class="form-control" id="inputGroupFile02" style="display:none;">
                         <label class="bg-light p-2 m-auto rounded" for="inputGroupFile02">Data Export</label>
                     </div>
-                    <div class="col">
-                        <h4 class="btn btn-warning p-3" onclick="Hide()">Next</h4>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="input-group mb-3 shadow-sm">
+                        <select class="form-select" id="inputGroupSelect01" width="50%">
+                            <option selected>DROPDOWN</option>
+                            <option value="Kitti">VIDEO ANNOTATION</option>
+                            <option value="BDD">3D-Cloud</option>
+                            <option value="Kitti">Kitti</option>
+                            <option value="BDD">BDD</option>
+                            <option value="Kitti">Kitti</option>
+                            <option value="BDD">BDD</option>
+                        </select>
                     </div>
                 </div>
-            </form>
-        </div>
+                <div class="col-md-2 col-sm-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Checkbox
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 bg-light m-3 shadow-sm rounded">
+                <div class="row p-3">
+                    <div class="mb-3 form-check col-md-5 col-sm-12 px-2">
+                        <p class="btn btn-outline-info px-5 py-3">Pre-processing script</p>
+                    </div>
+                    <div class="form-check col-md-5 col-12 px-2">
+                        <div class="input-group mb-3 shadow-sm">
+                            <select class="form-select">
+                                <option selected>DROPDOWN</option>
+                                <option value="1">Face anonymization</option>
+                                <option value="2">License plate burning</option>
+                                <option value="2">Dehaze</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" form-check col-md-2 col-sm-6 px-2">
+                        <div class="form-check me-0">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Checkbox
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-light m-3 p-3 shadow-sm rounded row">
+                <div class="rounded bg-secondary px-1 py-4 col-md-4 col-sm-12">
+                    <h3 class="btn p-2 px-5 m-2 btn-outline-warning rounded">Annotation Setup</h3>
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <label class="px-1 btn btn-warning  rounded">Label Category</label>
+
+                        </div>
+                        <div class="shadow-sm col ">
+                            <select class="form-select ">
+                                <option selected>DROPDOWN</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 my-2 col-sm-12">
+                    <div class="mb-3 shadow-sm">
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>DROPDOWN</option>
+                            <option value="1">Kitti</option>
+                            <option value="2">BDD</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Checkbox
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light m-3 p-3 shadow-sm rounded row d-flex">
+                <div class="input-group mb-3 rounded bg-secondary py-5 px-2 col">
+                    <input type="file" class="form-control" id="inputGroupFile02" style="display:none;">
+                    <label class="bg-light p-2 m-auto rounded" for="inputGroupFile02">Data Export</label>
+                </div>
+                <div class="col">
+                    <h4 class="btn btn-warning p-3" onclick="Hide()">Next</h4>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4 col-sm-12 ">
+        <button class="btn btn-outline-warning">View pipeline</button>
+        <button class="btn btn-outline-warning">Edit pipeline</button>
+    </div>
+</div>
 
 
 
@@ -270,4 +291,11 @@
         document.getElementById("shown").style.display = "block";
         document.getElementById("hidden").style.display = "none"
     }
+    //date
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() -2).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = dd + '/' + mm + '/' + yyyy;
+    document.getElementById("TodayDate").value = today;
 </script>
